@@ -12,6 +12,5 @@
       <router-link to="/shoes" class="w3-bar-item w3-button">Shoes</router-link>
     </div>
     <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
   </nav>
 </template>

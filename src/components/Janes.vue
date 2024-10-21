@@ -1,14 +1,69 @@
 <script>
-
 export default {
   name: 'janes',
   data(){
     return{
       picture1:"https://www.w3schools.com/w3images/jeans.jpg",
-      picture2:"https://www.w3schools.com/w3images/jeans1.jpg",
-      picture3:"https://www.w3schools.com/w3images/jeans2.jpg",
-      picture4:"https://www.w3schools.com/w3images/jeans3.jpg",
-      picture5:"https://www.w3schools.com/w3images/jeans4.jpg"
+
+
+      products: [
+        {
+          id: 1,
+          image: "https://www.w3schools.com/w3images/jeans1.jpg",
+          name: "Ripped Skinny Jeans",
+          price: "$24.99",
+          tag: "",
+        },
+        {
+          id: 2,
+          image: "https://www.w3schools.com/w3images/jeans2.jpg",
+          name: "Mega Ripped Jeans",
+          price: "$19.99",
+          tag: "New",
+        },
+        {
+          id: 3,
+          image: "https://www.w3schools.com/w3images/jeans3.jpg",
+          name: "Washed Skinny Jeans",
+          price: "$20.50",
+          tag: "",
+        },
+        {
+          id: 4,
+          image: "https://www.w3schools.com/w3images/jeans4.jpg",
+          name: "Vintage Skinny Jeans",
+          price: "$14.99",
+          tag: "Sale",
+        },
+        {
+          id: 5,
+          image: "https://www.w3schools.com/w3images/jeans1.jpg",
+          name: "Ripped Skinny Jeans",
+          price: "$24.99",
+          tag: "",
+        },
+        {
+          id: 6,
+          image: "https://www.w3schools.com/w3images/jeans2.jpg",
+          name: "Mega Ripped Jeans",
+          price: "$19.99",
+          tag: "New",
+        },
+        {
+          id: 7,
+          image: "https://www.w3schools.com/w3images/jeans3.jpg",
+          name: "Washed Skinny Jeans",
+          price: "$20.50",
+          tag: "",
+        },
+        {
+          id: 8,
+          image: "https://www.w3schools.com/w3images/jeans4.jpg",
+          name: "Vintage Skinny Jeans",
+          price: "$14.99",
+          tag: "Sale",
+        },
+      ]
     }
   }
 
@@ -16,28 +71,9 @@ export default {
 </script>
 
 <template>
-  <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-    <div class="w3-bar-item w3-padding-24 w3-wide">FamSP</div>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-  </header>
-
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
   <!-- !PAGE CONTENT! -->
+   <HeaderBox></HeaderBox>
   <div class="w3-main" style="margin-left:250px" id="janes">
-
-    <!-- Push down content on small screens -->
-    <div class="w3-hide-large" style="margin-top:83px"></div>
-    
-    <!-- Top header -->
-    <header class="w3-container w3-xlarge">
-      <p class="w3-left">Jeans</p>
-      <p class="w3-right">
-        <i class="fa fa-shopping-cart w3-margin-right"></i>
-        <i class="fa fa-search"></i>
-      </p>
-    </header>
 
     <!-- Image header -->
     <div class="w3-display-container w3-container">
@@ -54,66 +90,20 @@ export default {
       <p>8 items</p>
     </div>
 
-    <!-- Product grid -->
-    <div class="w3-row w3-grayscale">
-      <div class="w3-col l3 s6">
-        <div class="w3-container">
-          <img :src="picture2" style="width:100%">
-          <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-        </div>
-        <div class="w3-container">
-          <img :src="picture3" style="width:100%">
-          <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-        </div>
-      </div>
-
-      <div class="w3-col l3 s6">
+        <!-- Product grid -->
+        <div class="w3-row w3-grayscale">
+      <div class="w3-col l3 s6" v-for="product in products" :key="product.id">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img :src="picture3" style="width:100%">
-            <span class="w3-tag w3-display-topleft">New</span>
+            <img :src="product.image" style="width:100%">
+            <span v-if="product.tag" class="w3-tag w3-display-topleft">{{ product.tag }}</span>
             <div class="w3-display-middle w3-display-hover">
               <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
-          <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-        </div>
-        <div class="w3-container">
-          <img :src="picture4" style="width:100%">
-          <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-        </div>
-      </div>
-
-      <div class="w3-col l3 s6">
-        <div class="w3-container">
-          <img :src="picture5" style="width:100%">
-          <p>Washed Skinny Jeans<br><b>$20.50</b></p>
-        </div>
-        <div class="w3-container">
-          <div class="w3-display-container">
-            <img :src="picture5" style="width:100%">
-            <span class="w3-tag w3-display-topleft">Sale</span>
-            <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p>Vintage Skinny Jeans<br><b class="w3-text-red">$14.99</b></p>
-        </div>
-      </div>
-
-      <div class="w3-col l3 s6">
-        <div class="w3-container">
-          <img :src="picture5" style="width:100%">
-          <p>Vintage Skinny Jeans<br><b>$14.99</b></p>
-        </div>
-        <div class="w3-container">
-          <img :src="picture2" style="width:100%">
-          <p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+          <p>{{ product.name }}<br><b>{{ product.price }}</b></p>
         </div>
       </div>
     </div>
-
-    <!-- Subscribe section -->
-    
   </div>
 </template>
