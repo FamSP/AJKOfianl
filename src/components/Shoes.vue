@@ -90,7 +90,7 @@ export default {
       <p>8 items</p>
     </div>
 
-<!-- Product grid -->
+<!-- Product Card -->
 <div class="w3-row w3-grayscale">
       <div class="w3-col l3 s6" v-for="product in products" :key="product.id">
         <div class="w3-container">

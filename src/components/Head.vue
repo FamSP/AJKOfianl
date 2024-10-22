@@ -15,7 +15,7 @@
     <header class="w3-container w3-xlarge">
       <p class="w3-left"></p>
       <p class="w3-right">
-        <i class="fa fa-shopping-cart w3-margin-right"></i>
+        <router-link to="/cart" class="fa fa-shopping-cart w3-margin-right"></router-link>
         <i class="fa fa-search"></i>
       </p>
     </header>
